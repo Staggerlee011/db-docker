@@ -1,0 +1,16 @@
+# using vNext image
+FROM microsoft/mssql-server-windows
+ 
+# create directory within SQL container for database files
+RUN powershell -Command (mkdir C:\\SQLServer)
+ 
+#copy the database files from host to container
+COPY mydb.mdf C:\\SQLServer
+COPY mydb.ldf C:\\SQLServer
+
+# set environment variables
+ENV sa_password=Testing11@@
+ 
+ENV ACCEPT_EULA=Y
+ 
+ENV attach_dbs="[{'dbName':'mydb','dbFiles':['C:\\SQLServer\\mydb.mdf','C:\\SQLServer\\mydb.ldf']}]"

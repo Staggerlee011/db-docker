@@ -1,0 +1,55 @@
+# specify the compose file format
+# this depends on what version of docker is running
+version: '3'
+ 
+ 
+# define our services, all database containers
+# each section specifies a container... 
+# the dockerfile name and location...
+# port number & sa password
+services:
+  db1:
+    build:
+        context: C:\GITHUB\db-docker\sql-server\docker-compose\dbs
+        dockerfile: dockerfile.dev1
+    environment:
+      sa_password: "Testing11@@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "15785:1433"
+  db2:
+    build:
+        context: C:\GITHUB\db-docker\sql-server\docker-compose\dbs
+        dockerfile: dockerfile.dev1
+    environment:
+      sa_password: "Testing22@@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "15786:1433"
+  db3:
+    build:
+        context: C:\GITHUB\db-docker\sql-server\docker-compose\dbs
+        dockerfile: dockerfile.dev1
+    environment:
+      sa_password: "Testing33@@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "15787:1433"
+  db4:
+    build:
+        context: C:\GITHUB\db-docker\sql-server\docker-compose\dbs
+        dockerfile: dockerfile.dev1
+    environment:
+      sa_password: "Testing44@@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "15788:1433"
+  db5:
+    build:
+        context: C:\GITHUB\db-docker\sql-server\docker-compose\dbs
+        dockerfile: dockerfile.dev1
+    environment:
+      sa_password: "Testing55@@"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "15789:1433"
